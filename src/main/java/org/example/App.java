@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class App {
 
     private static Scanner sc = new Scanner(System.in);
-    private static Collection<Aluno> listaAlunos = new HashSet<Aluno>();
+    private static Collection<String> listaAlunos = new HashSet<String>();
 
     public static void main(String[] args) {
 
@@ -40,15 +40,15 @@ public class App {
         System.out.println("Insira o nome: ");
         String nome = sc.nextLine();
         if(verificaNomeExistente(nome)){
-            listaAlunos.add(new Aluno(nome));
+            listaAlunos.add(nome);
         }else{
             System.out.println("\n#### NOME JA CADASTRADO ####\n");
         }
     }
 
     private static boolean verificaNomeExistente(String nome){
-        for (Aluno aluno : listaAlunos){
-            if (aluno.getNome().equals(nome)){
+        for (String aluno : listaAlunos){
+            if (aluno.equals(nome)){
                 return false;
             }
         }
@@ -58,7 +58,7 @@ public class App {
     private static void exibirLista() {
         System.out.println("----- Lista de nomes -----");
         listaAlunos.forEach(nome -> {
-        	System.out.println(nome.getNome());
+        	System.out.println(nome);
         });
 
             
