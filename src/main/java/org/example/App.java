@@ -1,19 +1,17 @@
 package org.example;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Scanner;
 
 
 public class App {
 
     private static Scanner sc = new Scanner(System.in);
-    private static List<Aluno> listaAlunos = new ArrayList<Aluno>();
+    private static Collection<Aluno> listaAlunos = new HashSet<Aluno>();
 
     public static void main(String[] args) {
 
-        int i = 0;
         String option;
 
         do {
@@ -59,8 +57,10 @@ public class App {
 
     private static void exibirLista() {
         System.out.println("----- Lista de nomes -----");
-        for (Aluno aluno : listaAlunos){
-            System.out.println(aluno.getNome());
-        }
+        listaAlunos.forEach(nome -> {
+        	System.out.println(nome.getNome());
+        });
+
+            
     }
 }
